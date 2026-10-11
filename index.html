@@ -129,13 +129,13 @@ html,body{height:100%;overflow:hidden}
 .sb-pop label{display:flex;align-items:center;gap:8px;font-weight:600;color:var(--anatomy-strong)}
 .sb-pop b{color:var(--anatomy-strong)}
 .sb-muted{color:var(--anatomy-muted);font-size:12.5px}
-.sb-main{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto minmax(0,1fr);gap:10px;padding:10px;min-height:0;min-width:0}
-.sb-board{height:min(calc((100vw - 32px) / 2.483 + 34px),62vh);display:flex;flex-direction:column;min-height:0;border-radius:16px;background:var(--anatomy-card);box-shadow:0 0 0 1px var(--anatomy-lo);--anatomy-paper:var(--anatomy-card);overflow:hidden}
+.sb-main{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(min(28vh,170px),1fr) auto;gap:10px;padding:10px;min-height:0;min-width:0}
+.sb-board{height:auto;max-height:calc((100vw - 32px) / 2.483 + 40px);display:flex;flex-direction:column;min-height:0;border-radius:16px;background:var(--anatomy-card);box-shadow:0 0 0 1px var(--anatomy-lo);--anatomy-paper:var(--anatomy-card);overflow:hidden}
 .sb-stage{position:relative;flex:1 1 auto;min-height:0;cursor:pointer;touch-action:manipulation;outline:none;-webkit-tap-highlight-color:transparent;padding:6px}
 .sb-stage .iso-svg{width:100%;height:100%;overflow:hidden}
 .sb-foot{display:flex;justify-content:space-between;padding:0 14px 10px;color:var(--anatomy-muted);font:11px/1 var(--anatomy-mono);letter-spacing:.08em;text-transform:uppercase}
 .sb-foot [data-readout]{color:var(--anatomy-strong);font-size:15px;letter-spacing:.02em;font-variant-numeric:tabular-nums}
-.sb-side{min-height:0;min-width:0;overflow-y:auto;display:flex;flex-direction:column;justify-content:center;padding:2px 4px}
+.sb-side{min-height:0;min-width:0;max-height:66vh;overflow-y:auto;display:flex;flex-direction:column;justify-content:center;padding:2px 4px}
 
 .sb-bead{--bead-paper:#7a4520;--bead-top:#c98c58;--bead-s0:#4f2a10;--bead-s1:#5f3415;--bead-s2:#6f3e1b;--bead-s3:#824b23;--bead-edge:#2e1606;--bead-crease:#3f200b;--bead-faint:#a8703f;--bead-weight:.6px}
 .sb-bead[data-lit]{--bead-paper:#b8783e;--bead-top:#f3cf98;--bead-s0:#8f5524;--bead-s1:#a1632c;--bead-s2:#b37235;--bead-s3:#c6823f;--bead-edge:#1f0d02;--bead-faint:#e2b47a;--bead-weight:1.4px}
@@ -149,7 +149,7 @@ html,body{height:100%;overflow:hidden}
 body.sb-anzan .sb-stage svg{filter:blur(7px);opacity:.28}
 body.sb-anzan .sb-anzan-note{display:flex;position:absolute;inset:0;align-items:center;justify-content:center;z-index:1;color:var(--anatomy-strong);font-size:clamp(17px,3vw,22px);font-weight:600;text-align:center;padding:0 12px}
 .sb-mode{display:flex;flex-direction:column;align-items:center;gap:10px;width:100%;text-align:center}
-.sb-mode[hidden],.sb-buttons [hidden],[data-listen-answer][hidden],.sb-suggest[hidden],.sb-results[hidden],.sb-sheetbox[hidden],.sb-sheet-top[hidden]{display:none}
+.sb-mode[hidden],.sb-buttons [hidden],.sb-options[hidden],[data-listen-answer][hidden],.sb-suggest[hidden],.sb-results[hidden],.sb-sheetbox[hidden],.sb-sheet-top[hidden]{display:none}
 .sb-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px 12px}
 .sb-select{min-height:40px;max-width:100%;padding:0 10px;border:0;border-radius:11px;background:var(--anatomy-card);box-shadow:0 0 0 1px var(--anatomy-mid);color:var(--anatomy-strong);font:600 15px/1 ui-sans-serif,system-ui,sans-serif}
 .sb-say{margin:0;min-height:2.7em;color:var(--anatomy-strong);font-size:clamp(16px,2.2vw,20px);line-height:1.35;font-variant-numeric:tabular-nums;max-width:30em}
@@ -177,20 +177,21 @@ body[data-theme="dark"] .sb-suggest{background:#4a3020;color:#fff}
 .sb-stars{margin:0;font-size:17px;min-height:1.2em}
 .sb-things{display:grid;gap:2px;min-height:1.2em;font-size:clamp(30px,5vw,46px);line-height:1.1}
 .sb-things span{display:inline-block;animation:sb-pop .45s var(--anatomy-ease) both}
-.sb-options{display:grid;grid-template-columns:repeat(2,minmax(0,auto));gap:6px 10px;justify-content:center}
+.sb-options{display:flex;flex-wrap:wrap;gap:6px 10px;justify-content:center;max-width:30em}
 .sb-options label{display:flex;flex-direction:column;align-items:flex-start;gap:3px;color:var(--anatomy-muted);font-size:12px;text-align:left}
 .sb-options .sb-select{min-height:36px;font-size:14px}
-.sb-flash{min-height:1.15em;color:var(--anatomy-strong);font:800 clamp(44px,8vw,72px)/1.1 ui-sans-serif,system-ui,sans-serif;font-variant-numeric:tabular-nums}
+.sb-flash{min-height:1.15em;color:var(--anatomy-strong);font:800 clamp(38px,min(7vw,9vh),64px)/1.1 ui-sans-serif,system-ui,sans-serif;font-variant-numeric:tabular-nums}
 .sb-flash:empty{min-height:0}
 .sb-flash span{display:inline-block;animation:sb-pop .35s var(--anatomy-ease) both}
 .sb-answer input{width:4.5em;min-height:50px;border:0;border-radius:12px;background:var(--anatomy-card);box-shadow:0 0 0 2px #7a4520;color:var(--anatomy-strong);text-align:center;font:700 28px/1 ui-sans-serif,system-ui,sans-serif}
 .sb-sheet-top{display:flex;gap:12px;align-items:center;color:var(--anatomy-text);font-size:15px}
 .sb-timer{font:700 19px/1 ui-monospace,"SF Mono",Menlo,monospace;color:var(--anatomy-strong)}
 .sb-results{width:100%;max-width:26em}
-.sb-results ol{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px}
-.sb-results li{display:flex;align-items:center;justify-content:space-between;gap:6px;padding:5px 9px;border-radius:9px;background:var(--anatomy-card);box-shadow:0 0 0 1px var(--anatomy-faint);font-size:14px;font-variant-numeric:tabular-nums;text-align:left}
+.sb-results ol{margin:0 auto;padding:0;list-style:none;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:5px;max-width:20em}
+.sb-results li{display:flex;align-items:center;justify-content:center;gap:4px;padding:0;min-height:34px;border-radius:9px;background:var(--anatomy-card);box-shadow:0 0 0 1px var(--anatomy-faint);font-size:13px;line-height:1.2;font-variant-numeric:tabular-nums;text-align:left}
 .sb-results li small{color:var(--anatomy-muted)}
-.sb-results li button{min-height:30px;padding:0 8px;border:0;border-radius:8px;background:#7a4520;color:#fff;font:600 12px/1 ui-sans-serif,system-ui,sans-serif;cursor:pointer}
+.sb-results li[data-ok]{color:#30a46c;font-weight:700}
+.sb-results li button{width:100%;min-height:34px;padding:0;border:0;border-radius:9px;background:#f3e3cc;color:#5a2f0f;font:700 13px/1 ui-sans-serif,system-ui,sans-serif;cursor:pointer}
 .sb-buttons{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
 .sb-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));width:min(100%,24em)}
 .sb-buttons button{min-width:56px;min-height:48px;padding:0 14px;border:0;border-radius:13px;background:var(--anatomy-card);color:var(--anatomy-strong);box-shadow:0 0 0 1px var(--anatomy-mid);font:600 17px/1 ui-sans-serif,system-ui,sans-serif;cursor:pointer;touch-action:manipulation}
@@ -200,6 +201,30 @@ body[data-theme="dark"] .sb-suggest{background:#4a3020;color:#fff}
 .sb-buttons button:focus-visible,.sb-tabs button:focus-visible,.sb-icon:focus-visible,.sb-select:focus-visible{outline:2px solid var(--anatomy-hi);outline-offset:2px}
 .sb-keys{margin:0;color:var(--anatomy-muted);font-size:12px}
 @media (max-height:620px){.sb-say{min-height:0;font-size:16px}.sb-buttons button{min-height:42px;font-size:15px}.sb-mode{gap:7px}.sb-keys{display:none}}
+@media (max-height:460px),(max-width:420px) and (max-height:720px){
+  .sb-mode,.sb-left,.sb-right{gap:6px}
+  .sb-say{min-height:0;font-size:15px;line-height:1.3}
+  .sb-say-big{font-size:18px}
+  .sb-buttons{gap:6px}
+  .sb-buttons button{min-height:38px;font-size:15px;padding:0 10px;border-radius:11px}
+  .sb-select{min-height:34px;font-size:14px}
+  .sb-task{font-size:20px;padding:4px 12px}
+  .sb-sheetbox{padding:2px 12px}
+  .sb-column{font-size:18px}
+  .sb-flash{font-size:34px}
+  .sb-things{font-size:28px}
+  .sb-keys,.sb-dots:empty{display:none}
+  .sb-stars{font-size:14px;min-height:0}
+  .sb-switch{font-size:13px}
+  .sb-tabs button{min-height:34px}
+  .sb-icon{width:36px;height:36px;font-size:16px}
+  .sb-bar{padding-top:6px}
+  .sb-main{padding:6px;gap:6px}
+  .sb-switch input{width:16px;height:16px}
+}
+@media (min-aspect-ratio:17/10) and (max-height:460px){.sb-main{grid-template-columns:minmax(0,1.35fr) minmax(250px,1fr)}}
+.sb-row{max-width:100%}
+.sb-row .sb-select{min-width:0;max-width:100%;text-overflow:ellipsis}
 @keyframes sb-pop{0%{transform:scale(.6);opacity:0}60%{transform:scale(1.15);opacity:1}100%{transform:scale(1)}}
 @keyframes sb-pulse{0%,100%{box-shadow:0 0 0 1px var(--anatomy-mid)}50%{box-shadow:0 0 0 4px #e0a96d}}
 .sb-cheer{display:inline-block;animation:sb-pop .5s var(--anatomy-ease) both}
@@ -213,7 +238,8 @@ body[data-theme="dark"] .sb-suggest{background:#4a3020;color:#fff}
 @media (max-width:699px){.sb-side{justify-content:flex-start}}
 @media (min-aspect-ratio:17/10){
   .sb-main{grid-template-columns:minmax(0,1.65fr) minmax(250px,1fr);grid-template-rows:minmax(0,1fr)}
-  .sb-board{height:auto}
+  .sb-board{height:auto;max-height:none}
+  .sb-side{max-height:none}
   .sb-side{justify-content:center}
   .sb-mode{flex-direction:column;gap:8px}
   .sb-left,.sb-right{width:100%;max-width:none}
@@ -223,7 +249,6 @@ body[data-theme="dark"] .sb-suggest{background:#4a3020;color:#fff}
   .sb-tabs{order:2;flex:1 1 100%;display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
   .sb-tabs button{padding:0 4px;font-size:14px}
 }
-body.sb-little .sb-board{height:min(70vh,calc(100vh - 370px))}
 @media (prefers-reduced-motion:reduce){.sb-buttons button[data-pulse],.sb-cheer,.sb-things span,.sb-flash span{animation:none}}
 </style></head><body class="iso" data-theme="light"><main class="iso-page"><div class="sb-app">
   <header class="sb-bar">
@@ -317,6 +342,7 @@ body.sb-little .sb-board{height:min(70vh,calc(100vh - 370px))}
       <button type="button" data-listen-do="check" hidden>Check ✓</button>
       <button type="button" data-listen-do="again" hidden>Listen again</button>
       <button type="button" data-listen-do="watch" hidden>Watch it</button>
+      <button type="button" data-listen-do="options" hidden>Options</button>
     </div>
     <p class="sb-stars" data-listen-score></p></div>
   </section>
@@ -1195,38 +1221,67 @@ function audio() {
   if (!sound.ctx) sound.ctx = new Context();
   if (sound.ctx.state === "suspended") sound.ctx.resume();
   if (!sound.noise) {
-    const length = Math.floor(sound.ctx.sampleRate * 0.05);
+    const length = Math.floor(sound.ctx.sampleRate * 0.012);
     sound.noise = sound.ctx.createBuffer(1, length, sound.ctx.sampleRate);
     const data = sound.noise.getChannelData(0);
-    for (let i = 0; i < length; i++) data[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / length, 5);
+    for (let i = 0; i < length; i++) data[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / length, 4);
   }
   return sound.ctx;
 }
 function clack(strength = 1) {
   const ctx = audio();
-  if (!ctx || performance.now() - sound.last < 45) return;
+  if (!ctx || performance.now() - sound.last < 28) return;
   sound.last = performance.now();
-  const t = ctx.currentTime;
-  const source = ctx.createBufferSource();
-  source.buffer = sound.noise;
-  const band = ctx.createBiquadFilter();
-  band.type = "bandpass";
-  band.frequency.value = 1500 + Math.random() * 500;
-  band.Q.value = 3;
-  const gain = ctx.createGain();
-  gain.gain.value = 0.55 * strength;
-  source.connect(band).connect(gain).connect(ctx.destination);
-  source.start(t);
-  const body = ctx.createOscillator();
-  body.type = "sine";
-  body.frequency.setValueAtTime(820 + Math.random() * 120, t);
-  body.frequency.exponentialRampToValueAtTime(520, t + 0.05);
-  const bodyGain = ctx.createGain();
-  bodyGain.gain.setValueAtTime(0.16 * strength, t);
-  bodyGain.gain.exponentialRampToValueAtTime(0.001, t + 0.08);
-  body.connect(bodyGain).connect(ctx.destination);
-  body.start(t);
-  body.stop(t + 0.09);
+  const t = ctx.currentTime + 0.002;
+  const out = ctx.createGain();
+  out.gain.value = 0.9 * strength;
+  const air = ctx.createBiquadFilter();
+  air.type = "highpass";
+  air.frequency.value = 180;
+  out.connect(air).connect(ctx.destination);
+  const tick = ctx.createBufferSource();
+  tick.buffer = sound.noise;
+  tick.playbackRate.value = 0.9 + Math.random() * 0.3;
+  const tickBand = ctx.createBiquadFilter();
+  tickBand.type = "bandpass";
+  tickBand.frequency.value = 3800 + Math.random() * 1400;
+  tickBand.Q.value = 1.4;
+  const tickGain = ctx.createGain();
+  tickGain.gain.setValueAtTime(0.5, t);
+  tickGain.gain.exponentialRampToValueAtTime(0.001, t + 0.012);
+  tick.connect(tickBand).connect(tickGain).connect(out);
+  tick.start(t);
+  tick.stop(t + 0.02);
+  const base = 1550 + Math.random() * 350;
+  const modes = [
+    [1, 0.34, 0.045],
+    [2.32, 0.2, 0.024],
+    [4.25, 0.11, 0.013],
+    [6.63, 0.05, 0.008],
+  ];
+  for (const [ratio, level, decay] of modes) {
+    const osc = ctx.createOscillator();
+    osc.type = "sine";
+    osc.frequency.value = base * ratio * (0.985 + Math.random() * 0.03);
+    const gain = ctx.createGain();
+    gain.gain.setValueAtTime(0.0001, t);
+    gain.gain.exponentialRampToValueAtTime(level, t + 0.0006);
+    gain.gain.exponentialRampToValueAtTime(0.0001, t + decay * 4);
+    osc.connect(gain).connect(out);
+    osc.start(t);
+    osc.stop(t + decay * 4 + 0.01);
+  }
+  const knock = ctx.createOscillator();
+  knock.type = "sine";
+  knock.frequency.setValueAtTime(260 + Math.random() * 40, t);
+  knock.frequency.exponentialRampToValueAtTime(190, t + 0.03);
+  const knockGain = ctx.createGain();
+  knockGain.gain.setValueAtTime(0.0001, t);
+  knockGain.gain.exponentialRampToValueAtTime(0.09, t + 0.001);
+  knockGain.gain.exponentialRampToValueAtTime(0.0001, t + 0.05);
+  knock.connect(knockGain).connect(out);
+  knock.start(t);
+  knock.stop(t + 0.06);
 }
 function notes(list, { type = "triangle", gap = 0.11, level = 0.13, length = 0.5 } = {}) {
   const ctx = audio();
@@ -1529,7 +1584,7 @@ function tick(now) {
       arrived += 1;
     } else moving = true;
   }
-  if (arrived) clack(Math.min(1, 0.6 + arrived * 0.12));
+  if (arrived) clack(Math.min(1, 0.55 + arrived * 0.1));
   press = Math.max(0, press - dt * 3);
   if (!moving && queue.length) {
     wait += dt;
@@ -2361,6 +2416,7 @@ function fitLittle() {
   const [, , w, h] = LITTLE_VIEW.split(" ").map(Number);
   const box = stage.getBoundingClientRect();
   const height = Math.max(120, Math.min(box.height - 12, (box.width - 12) * (h / w)));
+  if (box.height < 60) return requestAnimationFrame(fitLittle);
   svg.style.height = `${height}px`;
   svg.style.width = `${height * (w / h)}px`;
   svg.style.margin = "0 auto";
@@ -2442,7 +2498,9 @@ function makeTerms() {
 }
 
 const listenButtons = (state) => {
-  $('[data-listen-do="start"]').hidden = state === "reading";
+  $("[data-listen-options]").hidden = state !== "idle";
+  $('[data-listen-do="options"]').hidden = state !== "result";
+  $('[data-listen-do="start"]').hidden = state === "reading" || state === "answer";
   $('[data-listen-do="start"]').textContent = state === "idle" ? "▶ Start" : "▶ Next one";
   $('[data-listen-do="check"]').hidden = state !== "answer";
   $('[data-listen-do="again"]').hidden = state !== "answer" && state !== "result";
@@ -2543,6 +2601,13 @@ $("[data-listen]").addEventListener("click", (event) => {
   if (what === "again") readTerms(false);
   if (what === "check") listenCheck();
   if (what === "watch") listenWatch();
+  if (what === "options") {
+    listen.token += 1;
+    renderListenOptions();
+    listenButtons("idle");
+    flashShow("");
+    say("listen", "Choose your settings, then press Start.", { voice: false });
+  }
 });
 
 $("[data-listen-input]").addEventListener("keydown", (event) => {
@@ -2652,15 +2717,15 @@ function sheetFinish() {
   const missed = SHEET_SIZE - score;
   const cheer = score === SHEET_SIZE ? "🎉 Perfect! Every one right!" : score >= 8 ? `🌟 Great work! ${score} right.` : score >= 5 ? `👍 Good job! ${score} right.` : `You tried them all, well done! ${score} right.`;
   chime();
-  say("sheet", `${cheer} Time: ${clockText(time)}.${better ? " That's your best yet!" : ""}${missed ? `<br><small>Let's look at the ${missed === 1 ? "tricky one" : `${missed} tricky ones`} together.</small>` : ""}`);
+  say("sheet", `${cheer} Time: ${clockText(time)}.${better ? " That's your best yet!" : ""}${missed ? `<br><small>Tap a ○ to practise ${missed === 1 ? "the tricky one" : "the tricky ones"}.</small>` : ""}`);
   const results = $("[data-sheet-results]");
   results.hidden = false;
   results.innerHTML = `<ol>${sheet.list
     .map((terms, i) => {
       const text = terms.length === 1 ? `Show ${terms[0]}` : `${terms.map((term, k) => (k === 0 ? term : signed(term))).join(" ")} = ${totalOf(terms)}`;
       return marks[i]
-        ? `<li><span>${i + 1}. ${text}</span><span>✓</span></li>`
-        : `<li><span>${i + 1}. ${text}<br><small>you: ${sheet.answers[i]}</small></span><button type="button" data-practise="${i}">Practise</button></li>`;
+        ? `<li data-ok title="${text}">${i + 1} ✓</li>`
+        : `<li><button type="button" data-practise="${i}" title="${text} (you showed ${sheet.answers[i]})" aria-label="Practise problem ${i + 1}: ${text}">${i + 1} ○</button></li>`;
     })
     .join("")}</ol>`;
 }
